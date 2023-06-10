@@ -36,7 +36,7 @@ public class SignInSuccessServlet extends HttpServlet {
             System.out.println(numCheck.getNumber(phoneNumber));
             Users.idSet.add(userId);
             Users.nickSet.add(nick);
-            Users user = new Users(userId, userPw, nick, date, gender, phoneNumber);
+            Users user = new Users(userId, userPw, nick, date, gender, numCheck.getNumber(phoneNumber));
             Users.map.put(userId, user);
         }
         else{
