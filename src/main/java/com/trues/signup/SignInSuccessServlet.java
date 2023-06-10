@@ -21,14 +21,16 @@ public class SignInSuccessServlet extends HttpServlet {
         String nick = req.getParameter("nickName");
         String date = req.getParameter("date");
         String gender = req.getParameter("gender");
+        String phoneNumber = req.getParameter("phone");
         System.out.println("gender = " + gender);
         System.out.println("date = " + date);
         System.out.println("nick = " + nick);
         System.out.println("userPw = " + userPw);
         System.out.println("userId = " + userId);
+        System.out.println("phoneNumber = " + phoneNumber);
         Users.idSet.add(userId);
         Users.nickSet.add(nick);
-        Users user = new Users(userId, userPw, nick, date, Integer.parseInt(gender));
+        Users user = new Users(userId, userPw, nick, date, gender, phoneNumber);
         Users.map.put(userId, user);
         StringBuilder sb = new StringBuilder();
         sb.append("<!doctype html>\n")
