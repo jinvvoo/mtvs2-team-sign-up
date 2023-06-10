@@ -28,19 +28,35 @@ public class SignInSuccessServlet extends HttpServlet {
         System.out.println("userPw = " + userPw);
         System.out.println("userId = " + userId);
         System.out.println("phoneNumber = " + phoneNumber);
-        Users.idSet.add(userId);
-        Users.nickSet.add(nick);
-        Users user = new Users(userId, userPw, nick, date, gender, phoneNumber);
-        Users.map.put(userId, user);
+
+        CheckPhoneNumber numCheck = new CheckPhoneNumber();
+        boolean phoneFlag = numCheck.checkNumber(phoneNumber);
+        if(phoneFlag){
+            System.out.println("올바른 폰번호네요.");
+            System.out.println(numCheck.getNumber(phoneNumber));
+            Users.idSet.add(userId);
+            Users.nickSet.add(nick);
+            Users user = new Users(userId, userPw, nick, date, gender, phoneNumber);
+            Users.map.put(userId, user);
+        }
+        else{
+            System.out.println("잘못된 폰번호인데요.");
+        }
         StringBuilder sb = new StringBuilder();
         sb.append("<!doctype html>\n")
                 .append("<html>\n")
                 .append("<head></head>\n")
-                .append("<body>\n")
-                .append("<h1> 가입완료 ^9^ </h1>\n")
-                .append("<a href=\"../\">로그인 하러 가기</a>") //어제 하고 싶었던거 성공 ^=^ !@!@!@!@!
-                .append("</body>\n")
-                .append("</html>");
+                .append("<body>\n");
+        if(phoneFlag){
+            sb.append("<h1> 가입완료 ^9^ </h1>\n")
+              .append("<a href=\"../\">로그인 하러 가기</a>"); //어제 하고 싶었던거 성공 ^=^ !@!@!@!@!
+        }
+        else{
+            sb.append("<h1> 잘못된 입력입니다. 올바르게 입력해주세요 ^-^ </h1>\n")
+                    .append("<a href=\"/signIn\">뒤로가기</a>");
+        }
+        sb.append("</body>\n")
+        .append("</html>");
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.print(sb);
