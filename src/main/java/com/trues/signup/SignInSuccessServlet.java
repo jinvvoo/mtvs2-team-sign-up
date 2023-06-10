@@ -53,7 +53,7 @@ public class SignInSuccessServlet extends HttpServlet {
         }
         else{
             sb.append("<h1> 잘못된 입력입니다. 올바르게 입력해주세요 ^-^ </h1>\n")
-                    .append("<a href=\"/signIn\">뒤로가기</a>");
+                    .append("<a href=\"javascript:window.history.back();\">뒤로가기</a>");
         }
         sb.append("</body>\n")
         .append("</html>");
