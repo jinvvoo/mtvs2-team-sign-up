@@ -26,10 +26,11 @@ public class SignInServlet extends HttpServlet {
                 "  <h1>회원가입</h1>\n" +
                 "  <div class=\"container\">\n" +
                 "    <form action=\"success\" method=\"post\">\n" +
-                "      <label>ID : <input type=\"text\" name=\"userId\"></label><br>\n" +
-                "      <label>PW : <input type=\"password\" name=\"userPw\"></label><br><label style=\"color: gray; font-size: small\">비밀번호는 영문 대소문자와 숫자, 특수문자를 포함하여 8자리 이상으로 입력해주세요.</label><br>\n" +
-                "      <label>닉네임 : <input type=\"text\" name=\"nickName\"></label><br>\n" +
-                "      <label>주민번호 : <input type=\"date\" name=\"date\"> - <input type=\"number\" name=\"gender\" size=\"2px\">******</label>\n" +
+                "      <label>ID : <input type=\"text\" name=\"userId\"></label><br><br>\n" +
+                "      <label>PW : <input type=\"password\" name=\"userPw\"></label><br><label style=\"color: gray; font-size: small\">비밀번호는 영문 대소문자와 숫자, 특수문자를 포함하여 8자리 이상으로 입력해주세요.</label><br><br>\n" +
+                "      <label>닉네임 : <input type=\"text\" name=\"nickName\"></label><br><br>\n" +
+                "      <label>주민번호 : <input type=\"text\" name=\"date\"> - <input type=\"text\" name=\"gender\" size=\"2px\">******</label><br><br>\n" +
+                "      <label>전화번호 : <input type=\"text\" name=\"phone\"></label><br><br>\n" +
                 "      <input type=\"submit\" value=\"가입\" style=\"background-color: dodgerblue; border-color: dodgerblue; color: white\">\n" +
                 "    </form>\n" +
                 "    <br>\n" +
