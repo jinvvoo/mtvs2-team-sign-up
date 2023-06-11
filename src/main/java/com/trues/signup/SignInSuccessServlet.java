@@ -14,6 +14,7 @@ import java.util.Enumeration;
 public class SignInSuccessServlet extends HttpServlet {
     private String userId, userPw;
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userId = req.getParameter("userId");
