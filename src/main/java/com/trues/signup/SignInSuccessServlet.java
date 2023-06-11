@@ -29,7 +29,14 @@ public class SignInSuccessServlet extends HttpServlet {
         System.out.println("userId = " + userId);
         System.out.println("phoneNumber = " + phoneNumber);
 
-        CheckPhoneNumber numCheck = new CheckPhoneNumber();
+        CheckSocialSecurityNumber checkSocialSecurityNumber = new CheckSocialSecurityNumber();
+
+        boolean result = checkSocialSecurityNumber.checkSocialSecurityNumber(date, gender);
+        if (result) {
+            System.out.println("좋은 주민번호 방식입니다.");
+        }
+
+        /*CheckPhoneNumber numCheck = new CheckPhoneNumber();
         boolean phoneFlag = numCheck.checkNumber(phoneNumber);
         if(phoneFlag){
             System.out.println("올바른 폰번호네요.");
@@ -61,6 +68,6 @@ public class SignInSuccessServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(sb);
         out.flush();
-        out.close();
+        out.close();*/
     }
 }
