@@ -10,7 +10,7 @@ import java.util.Set;
 public class CheckNicknameTest {
 
         @Test
-    @DisplayName("닉네임이 중복되면 false를 반환합니다.")
+    @DisplayName("닉네임이 중복되면 false를 반환.")
     public void testCheckNick_ExistingNick_ReturnsFalse() {
         Users.nickSet.add("existingNick");
 
