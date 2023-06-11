@@ -9,14 +9,16 @@ public class CheckId {
 
 
     // Step1. 대문자를 소문자로 치환
-
+    // toLowerCase를 사용. 문자열을 소문자로 변환
+    // 문자열이기 때문에 String 사용
     public String step1(String new_id)
     {
         return new_id.toLowerCase();
     }
 
 
-    // Step2. 빈 문자열일 경우에 a 대입
+    // Step2. 아이디 입력란이 공백일 시 a로 치환
+    // equlas를 사용하여 공백을 찾아내고 a로 치환하였습니다.
     public String step2(String new_id)
     {
         return new_id.equals("") ? "a" : new_id;
@@ -25,22 +27,22 @@ public class CheckId {
 
 
     // Step3. 한글, 특수기호 금지
+    //        : 영어 소문자, 숫자, - _ 제외한 모든 문자 제거
+    // step4. 글자수 최소 3, 최대 15로 제한
+    // 정규식 패턴을 사용
+    // 정규식을 사용하지 않는다면, 코드가 지저분해지고 구현이 훨씬 어려워진다.
+    // 하지만, 정규식을 사용함으로써 코드가 간결해지고 더 쉽고 빠르게 구현할 수 있게 되었다.
     public static final String pattern2 = "^[A-Za-z-_[0-9]]{3,15}$"; // 영문, 숫자
-    // "^[A-Za-z[0-9][-][_]$]{10,20}$"
-    // "^[A-Za-z[0-9]$\\-_]{10,20}$"
-
-    // 영어 소문자, 숫자, - _ 제외한 모든 문자 제거
-//          "[^a-z0-9\\-_]*",""
-//     		str = str.replaceAll("[^a-z0-9\\-_.]*","");
-
 
     public boolean idRegularExpressionChk(String newId) {
         boolean chk = false;
 
-
-        // 영문, 숫자 (10~20 자리)
+        // 영문, 숫자 (3~15 자리)
+        // 패턴을 이용해서 matcher가 해석을 할 수 있도록 정규식을 변환하는 작업
+        // 이후 Matcher가 pattern2와 newId를 매칭하여 true or false 반환
         Matcher match = Pattern.compile(pattern2).matcher(newId);
 
+        // find 로 찾아서 맞으면 true 틀리면 위에 디폴트값으로 false
         if (match.find()) {
 
             chk = true;
@@ -48,6 +50,26 @@ public class CheckId {
         }
         return chk;
     }
+
+
+    // Step5. 아이디 중간에 공백 제거
+    public static String step5(String str) {
+//        String str = "일이삼사오 육칠팔구십 일이삼사오 육칠팔구십";
+//        System.out.println("공백 제거 전 문자열 길이는?" + str.length());
+
+        String replaceStr = str.replace(" ", "");
+
+//        System.out.println("replace()후 문자열:" + replaceStr);
+//        System.out.println("replace()후 문자열 길이" + replaceStr.length());
+
+        return replaceStr;
+    }
+
+
+
+
+/////////// 여기서부터는 테스트 /////////////////////
+
 
 //
 //    // Step4. 최소 4글자, 최대 15글자
@@ -65,19 +87,6 @@ public class CheckId {
 //        return str == null || str.isEmpty();
 //    }
 
-    // 아이디 중간에 공백 제거
-    public static String step5(String str) {
-//        String str = "일이삼사오 육칠팔구십 일이삼사오 육칠팔구십";
-//        System.out.println("공백 제거 전 문자열 길이는?" + str.length());
-
-        String replaceStr = str.replace(" ", "");
-
-//        System.out.println("replace()후 문자열:" + replaceStr);
-//        System.out.println("replace()후 문자열 길이" + replaceStr.length());
-
-        return replaceStr;
-    }
-
 
     //Step4와 Step5를 합쳐봐?
 
@@ -91,8 +100,6 @@ public class CheckId {
 //    }
 
 
-
-/////////// 여기서부터는 테스트 /////////////////////
 
 
     // 문자열에 공백 제거
