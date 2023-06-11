@@ -26,7 +26,53 @@ public class CheckIdTest {
         String res = id.step1(letter);
 
         //then
-        Assertions.assertEquals("aaaaaa");
+        Assertions.assertEquals("aaaaaa", res);
     }
 
+    @DisplayName("공백을 입력하면 a로 치환되는지 확인")
+    @Test
+
+    void testStep2(){
+
+        //given
+        String letter = "";
+
+        //when
+        String res = id.step2(letter);
+
+        //then
+        Assertions.assertEquals("a", res);
+    }
+
+    @DisplayName("한글과 특수기호를 쓰면 제거")
+    @Test
+
+    void idRegularExpressionChkTest(){
+
+        //given
+        String letter = "js-_f";
+
+        //when
+        boolean res = id.idRegularExpressionChk(letter);
+
+        //then
+        Assertions.assertEquals(true, res);
+
+    }
+
+
+    @DisplayName("아이디 중간에 공백이 있을 시 제거")
+    @Test
+
+    void testStep5(){
+
+        //given
+        String letter = "korea love";
+
+        //when
+        String res = id.step5(letter);
+
+        //then
+        Assertions.assertEquals("korealove", res);
+    }
 }
