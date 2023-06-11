@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Users {
     static HashSet<String> idSet = new HashSet<>();
-    static HashSet<String> nickSet = new HashSet<>();
+    public static HashSet<String> nickSet = new HashSet<>();
     static HashMap<String, Users> map = new HashMap<>();
     String id, pw, nick, birth, gender, phone;
     Users(String str1, String str2, String nick, String birth, String gender, String phone){
@@ -44,11 +44,13 @@ public class Users {
         }
         return (upperFlag && lowerFlag && numFlag && specialFlag);
     }
-    public boolean checkNick(String nick){
+    public boolean CheckNickname(String nick){
+        HashSet<String> nickSet = new HashSet<>();
         if(!nickSet.isEmpty()){
             return !nickSet.contains(nick);
         }
-        return true;
+        return false;
+
     }
     public boolean checkGender(int gender){
         if(1 <= gender && gender <= 4){

@@ -14,6 +14,7 @@ import java.util.Enumeration;
 public class SignInSuccessServlet extends HttpServlet {
     private String userId, userPw;
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userId = req.getParameter("userId");
@@ -39,6 +40,16 @@ public class SignInSuccessServlet extends HttpServlet {
         //전화 번호
         CheckPhoneNumber numCheck = new CheckPhoneNumber();
         boolean phoneFlag = numCheck.checkNumber(phoneNumber);
+
+        //닉네임
+        CheckNickname CheckNickname = new CheckNickname();
+        boolean nicknameFlag = CheckNickname.checkNickname(nick);
+        if (nicknameFlag) {
+            System.out.println("올바른 닉네임입니다.");
+            Users.nickSet.add(nick);
+        } else {
+            System.out.println("잘못된 닉네임입니다.");
+        }
 
         //아이디
         CheckId idCheck = new CheckId();
