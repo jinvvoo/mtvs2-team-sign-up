@@ -3,13 +3,13 @@ package com.trues.signup;
 public class CheckNickname {
 
     // 중복을 확인하는 코드 #HashSet (중복을 자체적으로 확인해줌)
-    // boolean을 사용하여 true, false값을 반환하도록 한다.
+    // boolean을 사용하여 true, false값을 반환하도록 함
     public boolean checkNick(String nick) {
         if (Users.nickSet.contains(nick)) {
             return false;
         }
 
-        // 닉네임에 공백이 포함되어 있는지 확인하는 코드
+        // 닉네임에 공백이 포함되어 있는가??
         // 닉네임에 공백이 포함되어 있다면 false를 반환, 공백이 없으면 true; 반환
         boolean hasSpace = nick.contains("");
         if (hasSpace) {
@@ -23,5 +23,9 @@ public class CheckNickname {
         } else {
             return false;
         }
+    }
+
+    public boolean checkNickname(String nick) {
+        return false;
     }
 }

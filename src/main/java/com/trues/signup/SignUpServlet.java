@@ -17,7 +17,7 @@ public class SignUpServlet extends HttpServlet {
         String pw = req.getParameter("userPw");
         System.out.println("signUp");
         StringBuilder sb = new StringBuilder();
-        String str = "";
+        String str = " ";
         sb.append("<!doctype html>\n")
                 .append("<html>\n")
                 .append("<head></head>")

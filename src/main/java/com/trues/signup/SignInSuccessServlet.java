@@ -34,6 +34,16 @@ public class SignInSuccessServlet extends HttpServlet {
         CheckPhoneNumber numCheck = new CheckPhoneNumber();
         boolean phoneFlag = numCheck.checkNumber(phoneNumber);
 
+        //닉네임
+        CheckNickname CheckNickname = new CheckNickname();
+        boolean nicknameFlag = CheckNickname.checkNickname(nick);
+        if (nicknameFlag) {
+            System.out.println("올바른 닉네임입니다.");
+            Users.nickSet.add(nick);
+        } else {
+            System.out.println("잘못된 닉네임입니다.");
+        }
+
         //아이디
         CheckId idCheck = new CheckId();
         String id1 = idCheck.step2(userId);
