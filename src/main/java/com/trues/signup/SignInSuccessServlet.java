@@ -94,6 +94,6 @@ public class SignInSuccessServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(sb);
         out.flush();
-        out.close();*/
+        out.close();
     }
 }
