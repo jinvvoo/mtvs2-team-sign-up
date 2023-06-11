@@ -3,7 +3,7 @@ package com.trues.signup;
 public class CheckNickname {
 
     // 중복을 확인하는 코드 #HashSet (중복을 자체적으로 확인해줌)
-    // boolean을 사용하여 true, false값을 반환하도록 함
+    // boolean을 사용하여 true, false값을 반환하도록 한다.
     public boolean checkNick(String nick) {
         if (Users.nickSet.contains(nick)) {
             return false;
