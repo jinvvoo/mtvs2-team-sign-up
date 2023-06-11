@@ -9,7 +9,7 @@ public class CheckNickname {
             return false;
         }
 
-        // 닉네임에 공백이 포함되어 있는가??
+        // 닉네임에 공백이 포함되어 있는지 확인하는 코드
         // 닉네임에 공백이 포함되어 있다면 false를 반환, 공백이 없으면 true; 반환
         boolean hasSpace = nick.contains("");
         if (hasSpace) {
