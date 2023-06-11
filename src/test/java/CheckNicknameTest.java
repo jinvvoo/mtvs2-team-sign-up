@@ -1,3 +1,6 @@
+import com.trues.signup.CheckId;
+import com.trues.signup.CheckNickname;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,8 +10,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CheckNicknameTest {
+    private CheckNickname nickname;
 
-    @Test
+//    @BeforeEach
+//        public void setUp(){
+//            System.out.println("set동작 확인");
+
+
+        @Test
     @DisplayName("닉네임이 중복되면 false를 반환합니다.")
     public void testCheckNick_ExistingNick_ReturnsFalse() {
         Users.nickSet.add("existingNick");
