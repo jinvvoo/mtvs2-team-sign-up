@@ -9,14 +9,15 @@ public class Users {
     static HashSet<String> idSet = new HashSet<>();
     static HashSet<String> nickSet = new HashSet<>();
     static HashMap<String, Users> map = new HashMap<>();
-    String id, pw, nick, birth;
-    int gender;
-    Users(String str1, String str2, String nick, String birth, int gender){
+    String id, pw, nick, birth, gender, phone;
+    Users(String str1, String str2, String nick, String birth, String gender, String phone){
         this.id = str1;
         this.pw = str2;
         this.nick = nick;
         this.birth = birth;
         this.gender = gender;
+        this.phone = phone;
+
 
     }
     public boolean checkId(String id){
