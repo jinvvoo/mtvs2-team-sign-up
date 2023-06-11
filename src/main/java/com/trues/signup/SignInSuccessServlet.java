@@ -59,6 +59,7 @@ public class SignInSuccessServlet extends HttpServlet {
             userId = idCheck.step5(idCheck.step1(id1));
         }
 
+
         //플래그 추가할 때, 밑에 if(phoneFlag랑 같이 추가해주삼)
         if(phoneFlag && idFlag){
             System.out.println("올바른 폰번호네요.");
