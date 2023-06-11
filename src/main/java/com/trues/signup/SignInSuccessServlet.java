@@ -36,11 +36,23 @@ public class SignInSuccessServlet extends HttpServlet {
             System.out.println("좋은 주민번호 방식입니다.");
         }
 
-        /*CheckPhoneNumber numCheck = new CheckPhoneNumber();
+        //전화 번호
+        CheckPhoneNumber numCheck = new CheckPhoneNumber();
         boolean phoneFlag = numCheck.checkNumber(phoneNumber);
-        if(phoneFlag){
+
+        //아이디
+        CheckId idCheck = new CheckId();
+        String id1 = idCheck.step2(userId);
+        Boolean idFlag = idCheck.idRegularExpressionChk(idCheck.step5(id1));
+        if(idFlag){
+            userId = idCheck.step5(idCheck.step1(id1));
+        }
+
+        //플래그 추가할 때, 밑에 if(phoneFlag랑 같이 추가해주삼)
+        if(phoneFlag && idFlag){
             System.out.println("올바른 폰번호네요.");
             System.out.println(numCheck.getNumber(phoneNumber));
+            System.out.println("userId = " + userId);
             Users.idSet.add(userId);
             Users.nickSet.add(nick);
             Users user = new Users(userId, userPw, nick, date, gender, numCheck.getNumber(phoneNumber));
@@ -54,7 +66,9 @@ public class SignInSuccessServlet extends HttpServlet {
                 .append("<html>\n")
                 .append("<head></head>\n")
                 .append("<body>\n");
-        if(phoneFlag){
+
+        //여기 말입니다.
+        if(phoneFlag && idFlag){
             sb.append("<h1> 가입완료 ^9^ </h1>\n")
               .append("<a href=\"../\">로그인 하러 가기</a>"); //어제 하고 싶었던거 성공 ^=^ !@!@!@!@!
         }
