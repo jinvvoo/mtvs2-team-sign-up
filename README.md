@@ -1,3 +1,7 @@
+# mtvs2-team-sign-up
+메타버스 2기 "mtvsdev" team true에서 진행했던 회원가입 시스템
+
+
 # 회원가입 페이지 만들기
 
 ## 프로젝트 소개
