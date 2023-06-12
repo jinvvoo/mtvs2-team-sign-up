@@ -28,16 +28,16 @@ public class CheckId {
 
     // Step3. 한글, 특수기호 금지
     //        : 영어 소문자, 숫자, - _ 제외한 모든 문자 제거
-    // step4. 글자수 최소 3, 최대 15로 제한
+    // step4. 글자수 최소 4, 최대 16로 제한
     // 정규식 패턴을 사용
     // 정규식을 사용하지 않는다면, 코드가 지저분해지고 구현이 훨씬 어려워진다.
     // 하지만, 정규식을 사용함으로써 코드가 간결해지고 더 쉽고 빠르게 구현할 수 있게 되었다.
-    public static final String pattern2 = "^[A-Za-z-_[0-9]]{3,15}$"; // 영문, 숫자
+    public static final String pattern2 = "^[A-Za-z-_[0-9]]{4,16}$"; // 영문, 숫자
 
     public boolean idRegularExpressionChk(String newId) {
         boolean chk = false;
 
-        // 영문, 숫자 (3~15 자리)
+        // 영문, 숫자 (4~16 자리)
         // 패턴을 이용해서 matcher가 해석을 할 수 있도록 정규식을 변환하는 작업
         // 이후 Matcher가 pattern2와 newId를 매칭하여 true or false 반환
         Matcher match = Pattern.compile(pattern2).matcher(newId);
