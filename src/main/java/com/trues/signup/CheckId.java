@@ -54,14 +54,8 @@ public class CheckId {
 
     // Step5. 아이디 중간에 공백 제거
     public static String step5(String str) {
-//        String str = "일이삼사오 육칠팔구십 일이삼사오 육칠팔구십";
-//        System.out.println("공백 제거 전 문자열 길이는?" + str.length());
-
+        
         String replaceStr = str.replace(" ", "");
-
-//        System.out.println("replace()후 문자열:" + replaceStr);
-//        System.out.println("replace()후 문자열 길이" + replaceStr.length());
-
         return replaceStr;
     }
 
