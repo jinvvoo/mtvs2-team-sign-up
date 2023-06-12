@@ -33,9 +33,6 @@ public class SignInSuccessServlet extends HttpServlet {
         CheckSocialSecurityNumber checkSocialSecurityNumber = new CheckSocialSecurityNumber();
 
         boolean result = checkSocialSecurityNumber.checkSocialSecurityNumber(date, gender);
-        if (result) {
-            System.out.println("좋은 주민번호 방식입니다.");
-        }
 
         //전화 번호
         CheckPhoneNumber numCheck = new CheckPhoneNumber();
@@ -80,7 +77,7 @@ public class SignInSuccessServlet extends HttpServlet {
                 .append("<body>\n");
 
         //여기 말입니다.
-        if(phoneFlag && idFlag){
+        if(phoneFlag && idFlag && result){
             sb.append("<h1> 가입완료 ^9^ </h1>\n")
               .append("<a href=\"../\">로그인 하러 가기</a>"); //어제 하고 싶었던거 성공 ^=^ !@!@!@!@!
         }

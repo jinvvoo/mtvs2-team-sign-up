@@ -12,7 +12,6 @@
         <form action="signUp" method="post">
             <label>ID : <input type="text" name="userId"></label><br>
             <label>PW : <input type="password" name="userPw"></label><br><br>
-            <label>Nickname : <input type="text" name="nickname"></label><br><br>
             <input type="submit" value="로그인" style="background-color: limegreen; border-color: limegreen; color: white">
         </form>
         <br>

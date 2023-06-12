@@ -35,7 +35,7 @@ public class CheckPwTest {
 
     void testBlank() {
         //given
-        String passwdtest = "ktrd17945";
+        String passwdtest = "ktrdF17945";
 
         //when
         Boolean res = CheckPassWord.checkPw(passwdtest);
